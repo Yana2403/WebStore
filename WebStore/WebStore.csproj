@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Views\OtherPages\BlogSingle\Partial\" />
-    <Folder Include="Views\OtherPages\Blog\Partial\" />
     <Folder Include="Views\OtherPages\Cart\Partial\" />
     <Folder Include="Views\OtherPages\Checkout\Partial\" />
     <Folder Include="Views\OtherPages\ContactUs\Partial\" />
