@@ -12,4 +12,16 @@
     <PackageReference Include="VisioForge.DotNet.Core.TRIAL" Version="11.4.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\OtherPages\BlogSingle\Partial\" />
+    <Folder Include="Views\OtherPages\Blog\Partial\" />
+    <Folder Include="Views\OtherPages\Cart\Partial\" />
+    <Folder Include="Views\OtherPages\Checkout\Partial\" />
+    <Folder Include="Views\OtherPages\ContactUs\Partial\" />
+    <Folder Include="Views\OtherPages\Error404\Partial\" />
+    <Folder Include="Views\OtherPages\Login\Partial\" />
+    <Folder Include="Views\OtherPages\ProductDetails\Partial\" />
+    <Folder Include="Views\OtherPages\Shop\Partial\" />
+  </ItemGroup>
+
 </Project>
