@@ -46,10 +46,8 @@ namespace WebStore.Controllers
                 StartDateofWork=new DateTime(2020,02,22)
             },
         };
-        public IActionResult Index()
-        {
-            return View(__Employees);
-        }
+        public IActionResult Index() => View();
+        
         public IActionResult EmployeeDetails(int id) 
         {
             var employee = __Employees.FirstOrDefault(e => e.Id == id); 
