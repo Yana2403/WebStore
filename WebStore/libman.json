@@ -28,7 +28,7 @@
     },
     {
       "library": "font-awesome@4.0.3",
-      "destination": "wwwroot/font-awesome/"
+      "destination": "wwwroot/lib/font-awesome/"
     },
     {
       "library": "prettyPhoto@3.1.6",
