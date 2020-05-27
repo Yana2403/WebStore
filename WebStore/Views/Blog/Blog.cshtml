@@ -1,13 +1,13 @@
-﻿<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="logo pull-left">
-                <a asp-controller="Home" asp-action="Index"><img src="~/images/home/logo.png" alt="" /></a>
+﻿<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <partial name="Partial/_LeftSideBar" />
+             
             </div>
-         <partial name="Partial/_BtnGroup" />
-        </div>
-        <div class="col-sm-8">
-           <partial name="Partial/_ShopMenu" />
+            <div class="col-sm-9">
+               <partial name="Partial/_BlogPostArea" />
+            </div>
         </div>
     </div>
-</div>
+</section>
