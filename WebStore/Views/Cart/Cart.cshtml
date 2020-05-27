@@ -1,7 +1,25 @@
-﻿
-@{
-    ViewData["Title"] = "Cart";
-}
+﻿<section id="cart_items">
+    <div class="container">
+        
+        <partial name="Partial/_BreadCrumbs" />
+        
+        <partial name="Partial/_CartInfo" />
+    </div>
+</section> <!--/#cart_items-->
 
-
-
+<section id="do_action">
+    <div class="container">
+        
+        <partial name="Partial/_Heading" />
+        <div class="row">
+            <div class="col-sm-6">
+                
+                <partial name="Partial/_ChoseArea" />
+            </div>
+            <div class="col-sm-6">
+                
+                <partial name="Partial/_TotalArea" />
+            </div>
+        </div>
+    </div>
+</section><!--/#do_action-->
