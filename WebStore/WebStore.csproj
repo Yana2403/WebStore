@@ -13,14 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\OtherPages\BlogSingle\Partial\" />
-    <Folder Include="Views\OtherPages\Cart\Partial\" />
-    <Folder Include="Views\OtherPages\Checkout\Partial\" />
-    <Folder Include="Views\OtherPages\ContactUs\Partial\" />
-    <Folder Include="Views\OtherPages\Error404\Partial\" />
-    <Folder Include="Views\OtherPages\Login\Partial\" />
-    <Folder Include="Views\OtherPages\ProductDetails\Partial\" />
-    <Folder Include="Views\OtherPages\Shop\Partial\" />
+    <Folder Include="Views\BlogSingle\Partial\" />
+    <Folder Include="Views\Cart\Partial\" />
+    <Folder Include="Views\Checkout\Partial\" />
+    <Folder Include="Views\ContactUs\Partial\" />
+    <Folder Include="Views\Error404\Partial\" />
+    <Folder Include="Views\Login\Partial\" />
+    <Folder Include="Views\ProductDetails\Partial\" />
+    <Folder Include="Views\Shop\Partial\" />
   </ItemGroup>
 
 </Project>
