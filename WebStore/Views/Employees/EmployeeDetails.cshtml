@@ -1,0 +1,24 @@
+﻿@model WebStore.Models.Employee
+    <div class="container">
+        <h1>Информация о сотруднике id:@Model.Id</h1>
+        <table class="table">
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Возраст</th>
+                <th>Дата рождения</th>
+                <th>Дата устройства на работу</th>
+            </tr>
+            <tr>
+                <td>@Model.Surname</td>
+                <td>@Model.FirstName</td>
+                <td>@Model.Patronymic</td>
+                <td>@Model.Age</td>
+                <td>@Model.Birthday.ToLongDateString()</td>
+                <td>@Model.StartDateofWork.ToLongDateString()</td>
+            </tr>
+        </table>
+        <hr />
+        <a asp-controller="Employees" asp-action="Index">К списку сотрудников</a>
+    </div>
