@@ -1,7 +1,21 @@
-﻿
-@{
-    ViewData["Title"] = "ProductDetails";
-}
+﻿<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                
+                <partial name="Partial/_LeftSideBar" />
+            </div>
 
+            <div class="col-sm-9 padding-right">
+                <!--/product-details-->
+                <partial name="Partial/_ProductDetails" />
 
+                <!--/category-tab-->
+                <partial name="Partial/_CategoryTab" />
+                <!--/recommended_items-->
+                <partial name="Partial/_RecommendedItems" />
 
+            </div>
+        </div>
+    </div>
+</section>
