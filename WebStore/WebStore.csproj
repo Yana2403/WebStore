@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Error404\Partial\" />
-    <Folder Include="Views\Login\Partial\" />
     <Folder Include="Views\ProductDetails\Partial\" />
     <Folder Include="Views\Shop\Partial\" />
   </ItemGroup>
