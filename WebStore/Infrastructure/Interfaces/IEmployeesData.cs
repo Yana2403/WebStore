@@ -11,7 +11,7 @@ namespace WebStore.Infrastructure.Interfaces
         IEnumerable<Employee> Get();
         Employee GetById(int id);
         int Add(Employee Employee);
-        void Edit(Employee Emplioyee);
+        void Edit(Employee Employee);
         bool Delete(int id);
 
         void SaveChanges();
