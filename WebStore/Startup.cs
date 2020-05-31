@@ -44,13 +44,13 @@ namespace WebStore
             app.UseDefaultFiles();
             app.UseWelcomePage("/MVC");
 
-            app.Use(async (context, next) =>
-            {
-                Debug.WriteLine($"Request to {context.Request.Path}"); //печатает путь куда происходит запрос
-                await next();//если не вызвать,то можно прервать конвейер
-                //постобработка
+            //app.Use(async (context, next) =>
+            //{
+            //    Debug.WriteLine($"Request to {context.Request.Path}"); //печатает путь куда происходит запрос
+            //    await next();//если не вызвать,то можно прервать конвейер
+            //    //постобработка
                 
-            });
+            //});
             //app.UseMiddleware<>() //позволяет подключить класс ввиде промежуточного ПО
 
             app.UseRouting();
