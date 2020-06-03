@@ -11,5 +11,6 @@ namespace WebStore.Infrastructure
         IEnumerable<Section> GetSections();
 
         IEnumerable<Brand> GetBrands();
+        IEnumerable<Product> GetProducts(ProductFilter Filter = null); //возвращает перечисление товаров
     }
 }
