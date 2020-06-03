@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.Infrastructure;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Infrastructure.Services;
 
@@ -33,6 +34,7 @@ namespace WebStore
               })
                 .AddRazorRuntimeCompilation();
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
+            services.AddSingleton<IProductData, InMemoryProductData>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
