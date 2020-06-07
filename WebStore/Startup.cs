@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebStore.DAL.Context;
+using WebStore.Data;
 using WebStore.Infrastructure;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Infrastructure.Services;
+using WebStore.Infrastructure.Services.SQL;
 
 namespace WebStore
 {
@@ -26,19 +24,22 @@ namespace WebStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews(opt =>
-              {
-                  //opt.Filters.Add<>()
-                  //opt.Conventions
-                  //opt.Conventions.Add();
-              })
+
+            services.AddDbContext<WebStoreDB>(opt =>
+                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<WebStoreDBInitializer>();
+
+            services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
-            services.AddSingleton<IProductData, InMemoryProductData>();
+            //services.AddSingleton<IProductData, InMemoryProductData>();
+            services.AddScoped<IProductData, SqlProductData>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WebStoreDBInitializer db)
         {
+            db.Initialize();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,15 +49,6 @@ namespace WebStore
             app.UseStaticFiles();
             app.UseDefaultFiles();
             app.UseWelcomePage("/MVC");
-
-            //app.Use(async (context, next) =>
-            //{
-            //    Debug.WriteLine($"Request to {context.Request.Path}"); //печатает путь куда происходит запрос
-            //    await next();//если не вызвать,то можно прервать конвейер
-            //    //постобработка
-                
-            //});
-            //app.UseMiddleware<>() //позволяет подключить класс ввиде промежуточного ПО
 
             app.UseRouting();
 
