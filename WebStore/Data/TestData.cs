@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebStore.Models;
 using WebStore.Domain.Entities;
+using WebStore.Domain.Entities.Employees;
 
 namespace WebStore.Data
 {
