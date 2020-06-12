@@ -49,7 +49,33 @@ namespace WebStore.Controllers
 
         #endregion
 
-        public IActionResult Login() => View();
+        #region Login user
+
+        public IActionResult Login(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel Model)
+        {
+            if (!ModelState.IsValid) return View(Model);
+            var login_result = await _SignInManager.PasswordSignInAsync(
+              Model.UserName,
+              Model.Password,
+              Model.RememberMe,
+              true);
+
+            if (login_result.Succeeded)
+            {
+                if (Url.IsLocalUrl(Model.ReturnUrl))
+                    return Redirect(Model.ReturnUrl);
+                return RedirectToAction("Index", "Home");
+            }
+
+            ModelState.AddModelError(string.Empty, "Введено неверное имя/пароль");
+            return View(Model);
+
+        }
+
+        #endregion
 
         public IActionResult Logout() => View();
 
