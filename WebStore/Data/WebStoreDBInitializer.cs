@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 using WebStore.DAL.Context;
 
@@ -17,6 +18,16 @@ namespace WebStore.Data
             var db = _db.Database;
 
             db.Migrate();
+            if (!_db.Employees.Any())
+                using (db.BeginTransaction())
+                {
+                    var employees = TestData.Employees.ToList();
+                    foreach (var employee in employees)
+                        employee.Id = 0;
+
+                    _db.Employees.AddRange(employees);
+
+                }
 
             if (_db.Products.Any()) return; //если в бд есть хоть 1 товар
 
