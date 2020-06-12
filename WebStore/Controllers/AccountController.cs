@@ -23,6 +23,7 @@ namespace WebStore.Controllers
         #region Register new user
 
         public IActionResult Register() => View(new RegisterUserViewModel());
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Register(RegisterUserViewModel Model)
         {
             return RedirectToAction("Index", "Home");
