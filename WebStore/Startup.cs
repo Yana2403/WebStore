@@ -89,6 +89,7 @@ namespace WebStore
             app.UseStaticFiles();
             app.UseDefaultFiles();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseWelcomePage("/MVC");
            
 
