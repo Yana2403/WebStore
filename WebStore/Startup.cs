@@ -88,13 +88,14 @@ namespace WebStore
 
             app.UseStaticFiles();
             app.UseDefaultFiles();
-            app.UseAuthentication();
-            app.UseAuthorization();
+            
+           
             app.UseWelcomePage("/MVC");
            
+            app.UseRouting(); 
 
-            app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                endpoints.MapControllerRoute(
