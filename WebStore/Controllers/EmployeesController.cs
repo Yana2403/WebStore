@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebStore.Data;
 using WebStore.Domain.Entities.Employees;
+using WebStore.Domain.Entities.Identity;
 using WebStore.Infrastructure.Interfaces;
 using WebStore.Infrastructure.Mapping;
 using WebStore.ViewModel;
@@ -13,6 +15,7 @@ namespace WebStore.Controllers
 {
     //[Route("NewRoute/[controller]/123")]
     //[Route("Staff")]
+    [Authorize]
     public class EmployeesController : Controller
     { private readonly IEmployeesData _EmployeesData;
         public EmployeesController(IEmployeesData EmployeesData)
@@ -31,7 +34,7 @@ namespace WebStore.Controllers
             return View(employee);
         }
         #region Редактирование
-
+        [Authorize(Roles = Role.Administrator)]
         public IActionResult Edit(int? Id)
         {
             if (Id is null) return View(new EmployeeViewModel());
@@ -47,6 +50,7 @@ namespace WebStore.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Role.Administrator)]
         public IActionResult Edit(EmployeeViewModel Model)
         {
             if (Model is null)
@@ -74,7 +78,7 @@ namespace WebStore.Controllers
 
         #endregion
         #region Удаление
-
+        [Authorize(Roles = Role.Administrator)]
         public IActionResult Delete(int id)
         {
             if (id <= 0)
@@ -88,6 +92,7 @@ namespace WebStore.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Role.Administrator)]
         public IActionResult DeleteConfirmed(int id) //доступен только через пост запрос
         {
             _EmployeesData.Delete(id);
