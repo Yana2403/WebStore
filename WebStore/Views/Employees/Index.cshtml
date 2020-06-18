@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebStore.Domain.Entities.Employees.Employee>
+﻿@using WebStore.Domain.Entities.Identity
+@model IEnumerable<WebStore.Domain.Entities.Employees.Employee>
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,22 +16,28 @@
                 <th>Отчество</th>
                 <th>Возраст</th>
                 <th></th>
+                @if (User.IsInRole(Role.Administrator))
+                {
+                    <th></th>
+                }
             </tr>
         </thead>
         <tbody>
             @foreach (var employee in Model)
             {
-                <tr>
-                    <td>
-                        <a asp-controller="Employees" asp-action="EmployeeDetails" asp-route-id="@employee.Id">
-                            <i class="fa fa-info-circle"></i>
-                        </a>
-                    </td>
-                    <td>@employee.Id</td>
-                    <td>@employee.Surname</td>
-                    <td>@employee.FirstName</td>
-                    <td>@employee.Patronymic</td>
-                    <td>@employee.Age</td>
+            <tr>
+                <td>
+                    <a asp-controller="Employees" asp-action="EmployeeDetails" asp-route-id="@employee.Id">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                </td>
+                <td>@employee.Id</td>
+                <td>@employee.Surname</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.Patronymic</td>
+                <td>@employee.Age</td>
+                @if (User.IsInRole(Role.Administrator))
+                {
                     <td>
                         <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.Id" class="btn btn-success">
                             <i class="fa fa-edit"></i>
@@ -39,7 +46,8 @@
                             <i class="fa fa-trash-o"></i>
                         </a>
                     </td>
-                </tr>
+                }
+            </tr>
             }
         </tbody>
     </table>

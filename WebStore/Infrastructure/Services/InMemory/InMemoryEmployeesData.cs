@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebStore.Data;
+using WebStore.Domain.Entities;
 using WebStore.Domain.Entities.Employees;
 using WebStore.Infrastructure.Interfaces;
 
@@ -58,5 +59,6 @@ namespace WebStore.Infrastructure.Services
         {
 
         }
+        public Product GetProductById(int id) => TestData.Products.FirstOrDefault(p => p.Id == id);
     }
 }
