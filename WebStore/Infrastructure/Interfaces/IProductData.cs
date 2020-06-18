@@ -12,5 +12,6 @@ namespace WebStore.Infrastructure
 
         IEnumerable<Brand> GetBrands();
         IEnumerable<Product> GetProducts(ProductFilter Filter = null); //возвращает перечисление товаров
+        Product GetProductById(int id);
     }
 }
